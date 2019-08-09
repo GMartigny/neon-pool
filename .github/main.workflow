@@ -24,5 +24,5 @@ action "Deploy to ZEIT" {
   uses = "actions/zeit-now@5c51b26db987d15a0133e4c760924896b4f1512f"
   needs = ["Filters for GitHub Actions"]
   secrets = ["ZEIT_TOKEN"]
-  args = "--target production"
+  args = "--target production --name neon-pool"
 }
