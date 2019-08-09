@@ -4,7 +4,7 @@ import { screensIds } from "../screen-manager";
 
 export default (scene) => {
     scene.setOptions({
-        fill: "#205cb3"
+        fill: "#205cb3",
     });
 
     const title = new Text(scene.center.subtract(0, 40), "Neon Pool", {
@@ -17,9 +17,22 @@ export default (scene) => {
         },
         cursor: Text.cursors.pointer,
     });
+
+    const betaWarning = new Text([title.width / 2, 40], "Alpha", {
+        fill: "#ffd212",
+        fontSize: title.options.fontSize / 2,
+        rotation: -0.05,
+        align: Text.alignments.center,
+    });
+
+    title.add(betaWarning);
+
     scene.add(title);
 
     title
+        .on(Text.events.draw, () => {
+            betaWarning.options.scale.set((Math.sin(betaWarning.frameCount / 40) / 5) + 1);
+        })
         .on(MouseEvent.events.hover, () => {
             title.options.shadow.blur = 20;
         })

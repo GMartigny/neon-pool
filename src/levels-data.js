@@ -27,6 +27,6 @@ export default [
             holes: [
                 [sceneSize[0] * (2 / 3), center[1]],
             ],
-        }
-    }
+        },
+    },
 ];

@@ -5,7 +5,7 @@ export default (component, getForces) => {
 
     if (component.previousPosition) {
         const speed = component.position.clone()
-                .subtract(component.previousPosition);
+            .subtract(component.previousPosition);
 
         speed.multiply(friction);
         component.position.add(speed);

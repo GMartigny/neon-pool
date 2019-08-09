@@ -1,0 +1,7 @@
+.idea/
+.github/
+node_modules/
+public/main.js
+.gitignore
+license
+readme.md

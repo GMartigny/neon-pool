@@ -6,8 +6,8 @@
     "scripts": {
         "lint": "eslint src/**/*.js",
         "test": "",
-        "play": "webpack --mode=development --watch",
-        "build": "webpack --mode=production",
+        "play": "webpack --mode=development --output=public/main.js --watch",
+        "build": "webpack --mode=production --output=public/main.js",
         "deploy": "now"
     },
     "eslintConfig": {

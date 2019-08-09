@@ -53,6 +53,27 @@ export default (scene) => {
         cursor: "none",
     });
 
+    // Creating the balls
+    const whiteBall = new Ball(scene.center, "#f0f0f0");
+
+    const balls = [];
+
+    // Creating the walls
+    const walls = [];
+    const binded = getForces.bind(null, walls, balls);
+
+    // Creating holes
+    const holes = [];
+
+    // Cue stick
+    const cueStick = new Cue();
+
+    // Hits count
+    const margin = 10;
+    const hitsCount = new Text([scene.width - margin, margin], "", {
+        align: Text.alignments.right,
+    });
+
     let hits = 0;
     const setHitCounter = (n) => {
         hits = n;
@@ -60,6 +81,15 @@ export default (scene) => {
     };
 
     let currentLevel = 0;
+    const resetWhite = () => {
+        whiteBall.position.set(levels[currentLevel].data.white);
+        if (whiteBall.previousPosition) {
+            whiteBall.previousPosition.set(whiteBall.position);
+        }
+        whiteBall.falling = false;
+        whiteBall.options.scale.set(1);
+    };
+
     const setLevel = (number) => {
         currentLevel = number;
         scene.empty();
@@ -94,39 +124,9 @@ export default (scene) => {
         setHitCounter(0);
     };
 
-    const resetWhite = () => {
-        whiteBall.position.set(levels[currentLevel].data.white);
-        if (whiteBall.previousPosition) {
-            whiteBall.previousPosition.set(whiteBall.position);
-        }
-        whiteBall.falling = false;
-        whiteBall.options.scale.set(1);
-    };
-
     const win = () => {
         console.log("You win !");
     };
-
-    // Creating the balls
-    const whiteBall = new Ball(scene.center, "#f0f0f0");
-
-    const balls = [];
-
-    // Creating the walls
-    const walls = [];
-    const binded = getForces.bind(null, walls, balls);
-
-    // Creating holes
-    const holes = [];
-
-    // Cue stick
-    const cueStick = new Cue();
-
-    // Hits count
-    const margin = 10;
-    const hitsCount = new Text([scene.width - margin, margin], hits.toString(), {
-        align: Text.alignments.right,
-    });
 
     setLevel(0);
 
