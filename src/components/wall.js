@@ -14,13 +14,13 @@ export default class Wall extends Line {
             strokeWidth: this.CONSTANTS.width,
             stroke: "#222",
             cursor: "none",
-        }
+        };
     }
 
     static get CONSTANTS () {
         return {
             width: 30,
             elasticity: 0.5,
-        }
+        };
     }
 }

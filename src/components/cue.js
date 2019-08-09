@@ -18,6 +18,6 @@ export default class Cue extends Line {
             strokeWidth: 10,
             stroke: "#d18c1f",
             cursor: "none",
-        }
+        };
     }
 }

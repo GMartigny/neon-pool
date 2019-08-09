@@ -19,7 +19,7 @@ export default class Ball extends Circle {
         return {
             ...super.defaultOptions,
             cursor: "none",
-        }
+        };
     }
 
     static get CONSTANTS () {
@@ -28,8 +28,11 @@ export default class Ball extends Circle {
             colors: [
                 "#ff3442",
                 "#9b3eff",
-                "#3ac427",
+                "#5de63a",
+                "#f9ff5a",
                 "#0a0c91",
+                "#f58820",
+                "#0d964b",
             ],
         };
     }

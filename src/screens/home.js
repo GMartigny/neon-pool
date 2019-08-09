@@ -23,6 +23,7 @@ export default (scene) => {
         fontSize: title.options.fontSize / 2,
         rotation: -0.05,
         align: Text.alignments.center,
+        underscore: true,
     });
 
     title.add(betaWarning);
@@ -32,7 +33,7 @@ export default (scene) => {
     title
         .on(Text.events.draw, () => {
             betaWarning.options.scale.set((Math.sin(betaWarning.frameCount / 40) / 5) + 1);
-        })
+        }, true)
         .on(MouseEvent.events.hover, () => {
             title.options.shadow.blur = 20;
         })

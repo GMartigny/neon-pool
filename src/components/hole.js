@@ -3,7 +3,7 @@ import { Circle } from "pencil.js";
 const radius = 30;
 
 export default class Hole extends Circle {
-    constructor(position) {
+    constructor (position) {
         super(position, radius);
     }
 
@@ -12,6 +12,6 @@ export default class Hole extends Circle {
             ...super.defaultOptions,
             fill: "#111",
             zIndex: 0,
-        }
+        };
     }
 }
