@@ -1,4 +1,4 @@
-const friction = 1 - 0.0035;
+const friction = 0.0035;
 
 export default (component, getForces) => {
     const previous = component.position.clone();
@@ -7,7 +7,9 @@ export default (component, getForces) => {
         const speed = component.position.clone()
             .subtract(component.previousPosition);
 
-        speed.multiply(friction);
+        const slowDown = Math.max(Math.exp(-speed.distance() * 25), friction);
+
+        speed.multiply(1 - slowDown);
         component.position.add(speed);
     }
 

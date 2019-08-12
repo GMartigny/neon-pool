@@ -10,6 +10,7 @@ export default class Hole extends Circle {
             ...super.defaultOptions,
             fill: "#111",
             zIndex: 0,
+            cursor: "none",
         };
     }
 

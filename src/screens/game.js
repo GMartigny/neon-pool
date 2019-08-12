@@ -68,6 +68,21 @@ export default (scene) => {
             }
         });
 
+        if (ball !== whiteBall) {
+            holes.forEach((hole) => {
+                const distance = ball.position.distance(hole.position);
+                const field = ball.radius + hole.radius;
+                if (distance < field) {
+                    const gravity = ball.position.clone()
+                        .subtract(hole.position)
+                        .divide(distance)
+                        .multiply(distance - field)
+                        .multiply(0.0008);
+                    forces.add(gravity);
+                }
+            });
+        }
+
         return forces;
     };
 
@@ -174,10 +189,13 @@ export default (scene) => {
                     ball.position.lerp(ball.falling.position, ratio);
                     ball.options.scale.lerp(undefined, ratio);
 
+                    // Ball disappear
                     if (ball.options.scale.distance() < 0.1) {
                         if (ball === whiteBall) {
+                            if (!balls.every(one => one.falling)) {
+                                setHitCounter(++hits);
+                            }
                             resetWhite();
-                            setHitCounter(++hits);
                         }
                         else {
                             balls.splice(index, 1);
