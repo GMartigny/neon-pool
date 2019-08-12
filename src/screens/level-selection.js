@@ -1,6 +1,6 @@
 import { Container, Slider, Rectangle, Text, BaseEvent, MouseEvent, Scene } from "pencil.js";
 
-import { screensIds } from "../screen-manager";
+import screensIds from "../screens-ids";
 import levels from "../levels-data";
 import * as saveManager from "../save-manager";
 

@@ -1,10 +1,8 @@
 import { Circle } from "pencil.js";
 
-const radius = 30;
-
 export default class Hole extends Circle {
     constructor (position) {
-        super(position, radius);
+        super(position, Hole.CONSTANTS.radius);
     }
 
     static get defaultOptions () {
@@ -12,6 +10,12 @@ export default class Hole extends Circle {
             ...super.defaultOptions,
             fill: "#111",
             zIndex: 0,
+        };
+    }
+
+    static get CONSTANTS () {
+        return {
+            radius: 30,
         };
     }
 }

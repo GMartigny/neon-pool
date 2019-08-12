@@ -1,8 +1,8 @@
-const storage = localStorage;
+const storage = window.localStorage;
 
-const encode = data => btoa(JSON.stringify(data));
+const encode = data => window.btoa(window.JSON.stringify(data));
 
-const decode = string => JSON.parse(atob(string));
+const decode = string => window.JSON.parse(window.atob(string));
 
 const persist = (key, data) => {
     if (key) {

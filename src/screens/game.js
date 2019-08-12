@@ -5,7 +5,7 @@ import Wall from "../components/wall";
 import Cue from "../components/cue";
 import Hole from "../components/hole";
 import verlet from "../verlet";
-import { screensIds } from "../screen-manager";
+import screensIds from "../screens-ids";
 import * as saveManager from "../save-manager";
 
 export default (scene) => {

@@ -1,5 +1,13 @@
 import { Navigation } from "pencil.js";
 
-import { screensBuilders } from "./screen-manager";
+import Home from "./screens/home";
+import LevelSelection from "./screens/level-selection";
+import Game from "./screens/game";
 
-Navigation.prepareScenes(screensBuilders, document.getElementById("canvas"));
+import screensIds from "./screens-ids";
+
+Navigation.prepareScenes({
+    [screensIds.home]: Home,
+    [screensIds.levelSelection]: LevelSelection,
+    [screensIds.game]: Game,
+}, document.getElementById("canvas"));

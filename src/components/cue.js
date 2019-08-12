@@ -2,7 +2,7 @@ import { Line, Position } from "pencil.js";
 
 export default class Cue extends Line {
     constructor () {
-        const end = [200, 0];
+        const end = [Cue.CONSTANTS.length, 0];
         super(undefined, [end]);
     }
 
@@ -18,6 +18,12 @@ export default class Cue extends Line {
             strokeWidth: 10,
             stroke: "#d18c1f",
             cursor: "none",
+        };
+    }
+
+    static get CONSTANTS () {
+        return {
+            length: 200,
         };
     }
 }

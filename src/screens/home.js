@@ -1,6 +1,6 @@
 import { Text, Scene, BaseEvent, MouseEvent } from "pencil.js";
 
-import { screensIds } from "../screen-manager";
+import screensIds from "../screens-ids";
 
 export default (scene) => {
     scene.setOptions({
